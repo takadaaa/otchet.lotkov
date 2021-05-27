@@ -1,0 +1,74 @@
+lol2 = new JButton("Список студентов"); // кнопка просмотра студентов
+    private JButton lol = new JButton("Информация о программе"); // кнопка о программе
+    private JButton button = new JButton("Вывести студента"); // кнопка проверить
+    private JTextField input = new JTextField("", 10); // поле для ввода текста
+    private JLabel label = new JLabel("Введите студента которого вы хотите просмотреть -\n"); // текстовая строка, с подписью
+
+    public lab ()
+    {
+        super ("Определение факультативов для студентов"); //Название приложения
+        this.setBounds( 100, 150, 1250, 150); // задание размеров главного окна
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); //оформление окна приложения
+
+        Container container = this.getContentPane(); //создание контейнера
+        container.setLayout(new GridLayout(3,2,2,2));
+        container.add(label); // контерйнер с текстом внутри, используется для расположения
+        container.add(input); // контейнер с полем для ввода текста
+
+
+        button.addActionListener(new ButtonEventListener()); // проверка кнопки на нажатие
+        container.add(button);
+
+        lol.addActionListener(new lol()); // проверка кнопки на нажатие
+        container.add(lol);
+
+        lol2.addActionListener(new lol2()); // проверка кнопки на нажатие
+        container.add(lol2);
+    }
+
+
+    // класс с выводом окна с информацией после нажатия на кнопку
+
+    class lol implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            String message = ""; // строка для информации
+            message += "Лотков Константин \n" + "Тема практики: \n" +"Определение факультативов для студентов"; // добавления информации в строку
+            JOptionPane.showMessageDialog(null, message, "Output", JOptionPane.PLAIN_MESSAGE); // демонтстрация окна с информацией
+        }
+    }
+    //
+
+
+    // класс с выводом окна с информацией после нажатия на кнопку
+    class lol2 implements ActionListener
+    {
+        public void actionPerformed(ActionEvent e)
+        {
+            String message = ""; // строка для информации
+            message += "Джалилов Амиль Азер оглы - футбольный факультет \n" + "Герасюк Богдан - волейбольный факультет \n" +"Лотков Константин - факультет киберспорта\n"+ "Захаров Марк - баскетболный факультет \n" ; // добавления информации в строку
+            JOptionPane.showMessageDialog(null, message, "Output", JOptionPane.PLAIN_MESSAGE); // демонтстрация окна с информацией
+        }
+    }
+
+    //
+
+
+    // класс с выводом окна с информацией после нажатия на кнопку
+    class ButtonEventListener implements ActionListener
+    {
+
+        public void actionPerformed (ActionEvent e)
+        {
+            String message = ""; // строка для информации
+            message += "Ниже будет написан студент, и его факультет \n" ; // добавления информации в строку
+            message += "Введённый студент - " + input.getText()+ "\nДжалилов Амиль Азер оглы - футбольный факультет "  ; // добавления информации в строку
+            JOptionPane.showMessageDialog(null, message, "Output", JOptionPane.PLAIN_MESSAGE); // демонтстрация окна с информацией
+        }
+
+    }
+    //
+
+
+}
